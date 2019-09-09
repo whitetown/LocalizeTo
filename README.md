@@ -29,6 +29,13 @@ GET /snapshot/{version}/languages/{language1,language2}
 
 this is enough for the most cases.
 
+## Installation
+
+With CocoaPods:
+
+    pod 'LocalizeTo'
+
+
 ## Initialize the module with an API key
 
 ```swift
