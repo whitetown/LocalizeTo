@@ -1,6 +1,6 @@
 # Localize.To Swift Client
 
-    This module allows you to get localization strings from Localize.to[https://localize.to] service.
+    This module allows you to get localization strings from [Localize.to](https://localize.to) service.
     It's nice and flexible replacement for native iOS localization files.
 
 ## Localize.To REST API
