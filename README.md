@@ -23,9 +23,9 @@ GET /snapshot/{version}/languages/{language1,language2}
 
 ## Currently, this module implements only these API calls:
 
-GET /languages/{language1,language2}
-GET /snapshot/{version}
-GET /snapshot/{version}/languages/{language1,language2}
+    GET /languages/{language1,language2}
+    GET /snapshot/{version}
+    GET /snapshot/{version}/languages/{language1,language2}
 
 this is enough for the most cases.
 
@@ -58,10 +58,10 @@ this is enough for the most cases.
     LocalizeTo.shared.setDefaultLanguageCode("en")
 ```
 
-    The default language is used if there is no translation for current language.
-    i.e.
-    let value = "my_key".localized
-    first will try to find French translation, then English translation
+The default language is used if there is no translation for current language.
+i.e.
+let value = "my_key".localized
+first will try to find French translation, then English translation
 
 
 ## Get localization strings
@@ -74,7 +74,7 @@ this is enough for the most cases.
     let value = LocalizeTo.shared.localize("localization_key", to: "de")
 ```
 
-    It's more convenient to use String extensions:
+It's more convenient to use String extensions:
 
 ```swift
     //for current language
