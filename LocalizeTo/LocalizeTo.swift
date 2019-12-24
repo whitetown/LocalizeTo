@@ -19,6 +19,7 @@ import UIKit
     private var defaultLanguage : String? = "en"
     private var folderName      = localizationFolderName
     public  var sortedKeys      = true
+    public  var specialSymbols  = true
 
     private(set) var translations = [String:[String:String]]()
 
@@ -182,6 +183,7 @@ private extension LocalizeTo {
 private extension LocalizeTo {
 
     func unescapeSpecialSymbols(_ json: [String:String]) -> [String:String] {
+        if !self.specialSymbols { return json }
         var result = [String:String]()
         for (key, value) in json {
             result[key] = value.unescaped
@@ -421,7 +423,15 @@ extension String {
 
 private extension String {
     var unescaped: String {
-        let entities = ["\0", "\t", "\n", "\r", "\"", "\'", "\\"]
+        let entities = [
+            "\0",
+            "\t",
+            "\n",
+            "\r",
+//            "\"",
+//            "\'",
+            "\\",
+        ]
         var current = self
         for entity in entities {
             let descriptionCharacters = entity.debugDescription.dropFirst().dropLast()
