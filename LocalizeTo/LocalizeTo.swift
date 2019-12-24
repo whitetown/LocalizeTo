@@ -169,7 +169,7 @@ private extension LocalizeTo {
             let data = try Data(contentsOf: filename, options: .mappedIfSafe)
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
             if let langPairs = json as? [String:String] {
-                self.translations[language] = langPairs
+                self.translations[language] = self.unescapeSpecialSymbols(langPairs)
                 return true
             }
         } catch {
@@ -180,6 +180,14 @@ private extension LocalizeTo {
 }
 
 private extension LocalizeTo {
+
+    func unescapeSpecialSymbols(_ json: [String:String]) -> [String:String] {
+        var result = [String:String]()
+        for (key, value) in json {
+            result[key] = value.unescaped
+        }
+        return result
+    }
 
     func jsonToData(_ json: [String:String]?) -> Data? {
 
@@ -411,4 +419,16 @@ extension String {
 
 }
 
+private extension String {
+    var unescaped: String {
+        let entities = ["\0", "\t", "\n", "\r", "\"", "\'", "\\"]
+        var current = self
+        for entity in entities {
+            let descriptionCharacters = entity.debugDescription.dropFirst().dropLast()
+            let description = String(descriptionCharacters)
+            current = current.replacingOccurrences(of: description, with: entity)
+        }
+        return current
+    }
+}
 
