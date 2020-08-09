@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LocalizeTo"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "Swift SDK for LocalizeTo service"
   s.description  = <<-DESC
   This module allows you to get localization strings from Localize.to[https://localize.to] service.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT" }
   s.author       = { "WhiteTown" => "whitetownmail@gmail.com" }
   s.platform     = :ios, "9.0"
-  s.source       = { :git => "https://github.com/whitetown/LocalizeTo.git", :tag => "v0.0.6" }
+  s.source       = { :git => "https://github.com/whitetown/LocalizeTo.git", :tag => "v0.0.7" }
   s.source_files = "LocalizeTo", "LocalizeTo/**/*.{h,m,swift}"
   s.swift_version = '5.0'
 
